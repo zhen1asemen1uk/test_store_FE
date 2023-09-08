@@ -3,7 +3,9 @@ const { REACT_APP_PORT, REACT_APP_HOST } = process.env;
 export const searchHandler = async ({ searchText, setGoods, setIsLoading }) => {
     try {
         const response = await fetch(
-            `${REACT_APP_HOST}${REACT_APP_PORT}/api/goods/search?text=${searchText}`
+            `${REACT_APP_HOST}${
+                REACT_APP_PORT || ""
+            }/api/goods/search?text=${searchText}`
         );
         const data = await response.json();
 
@@ -22,7 +24,9 @@ export const searchByIdsHandler = async ({
 }) => {
     try {
         const response = await fetch(
-            `${REACT_APP_HOST}${REACT_APP_PORT}/api/goods/filter?array=${arrIds}`
+            `${REACT_APP_HOST}${
+                REACT_APP_PORT || ""
+            }/api/goods/filter?array=${arrIds}`
         );
         const data = await response.json();
 

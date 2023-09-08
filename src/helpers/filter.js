@@ -8,7 +8,9 @@ export const filterGoodsByPrice = async ({
 }) => {
     try {
         const response = await fetch(
-            `${REACT_APP_HOST}${REACT_APP_PORT}/api/goods/filter?minPrice=${minPrice}&maxPrice=${maxPrice}`
+            `${REACT_APP_HOST}${
+                REACT_APP_PORT || ""
+            }/api/goods/filter?minPrice=${minPrice}&maxPrice=${maxPrice}`
         );
         const data = await response.json();
 
@@ -23,7 +25,9 @@ export const filterGoodsByPrice = async ({
 export const filterGoodsByRate = async ({ rate, setGoods, setIsLoading }) => {
     try {
         const response = await fetch(
-            `${REACT_APP_HOST}${REACT_APP_PORT}/api/goods/filter?rate=${rate}`
+            `${REACT_APP_HOST}${
+                REACT_APP_PORT || ""
+            }/api/goods/filter?rate=${rate}`
         );
         const data = await response.json();
 
